@@ -1,7 +1,7 @@
 module Main exposing (..)
 
-import Html exposing (Html, text, div, h1, img)
-import Html.Attributes exposing (src)
+import Html as H exposing (Html)
+import Html.Attributes exposing (class)
 
 
 ---- MODEL ----
@@ -35,9 +35,26 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ img [ src "/logo.svg" ] []
-        , h1 [] [ text "Your Elm App is working!" ]
+    H.div [ class "mdc-typography" ]
+        [ header
+        , H.text "ChordSync"
+        ]
+
+
+header : Html msg
+header =
+    H.div []
+        [ H.header [ class "mdc-top-app-bar  mdc-top-app-bar--fixed" ]
+            [ H.div [ class "mdc-top-app-bar__row" ]
+                [ H.section [ class "mdc-top-app-bar__section mdc-top-app-bar__section--align-start" ]
+                    [ H.span [ class "mdc-top-app-bar__title" ] [ H.text "Chord Sync" ]
+                    ]
+                , H.section [ class "mdc-top-app-bar__section mdc-top-app-bar__section--align-end" ]
+                    [ H.button [ class "mdc-button mdc-button--raised" ] [ H.text "Menu" ]
+                    ]
+                ]
+            ]
+        , H.div [ class "mdc-top-app-bar--fixed-adjust" ] []
         ]
 
 
@@ -47,7 +64,7 @@ view model =
 
 main : Program Never Model Msg
 main =
-    Html.program
+    H.program
         { view = view
         , init = init
         , update = update
