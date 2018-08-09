@@ -20,41 +20,49 @@ $textSecondaryOnDark: rgba(255, 255, 255, 0.7);
 $textHintOnDark: rgba(255, 255, 255, 0.5);
 $textDisabledOnDark: rgba(255, 255, 255, 0.5);
 $textIconOnDark: rgba(255, 255, 255, 0.5);
-$mdc-typography-font-family: 'Roboto Condensed',
-sans-serif;
+$mdc-typography-font-family: 'Roboto Condensed', sans-serif;
 @import '@material/theme/mdc-theme';
 @import '@material/top-app-bar/mdc-top-app-bar';
-@import "@material/button/mdc-button";
+@import '@material/button/mdc-button';
+@import '@material/elevation/mdc-elevation';
+@import '@material/menu/mdc-menu';
+@import '@material/list/mdc-list';
 @import '@material/typography/mdc-typography';
 html,
 body {
-    font-size: 24px;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(to right, #fb9c2c, #fd2472);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-size: 20px;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #fb9c2c, #fd2472);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 $phone-max: 600px;
 $tablet-max: 1200px;
 $desktop-max: 1800px;
 @mixin tablet-and-above {
-    @media (min-width: #{$phone-max + 1px}) {
-        @content;
-    }
+  @media (min-width: #{$phone-max + 1px}) {
+    @content;
+  }
 }
 
 @mixin tablet {
-    @media (min-width: #{$phone-max + 1px}) and (max-width: #{$tablet-max}) {
-        @content;
-    }
+  @media (min-width: #{$phone-max + 1px}) and (max-width: #{$tablet-max}) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width: #{$tablet-max}) {
-        @content;
-    }
+  @media (min-width: #{$tablet-max}) {
+    @content;
+  }
+}
+
+.song-list {
+  margin: 1rem 12.5%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.75);
 }
